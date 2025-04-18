@@ -33,21 +33,39 @@ function getHumanChoice() {
 //step 4: write the logic to play a single round
 function playRound(humanChoice, computerChoice) {
     if ((humanChoice == 0 && computerChoice == 2) || (humanChoice == 1 && computerChoice == 0) || (humanChoice == 2 && computerChoice == 1) ) {
-        console.log(humanChoice);
-        console.log(computerChoice);
+        // console.log(humanChoice);
+        // console.log(computerChoice);
         humanScore = ++humanScore;
         console.log(`Player wins. Score is human: ${humanScore} computer: ${computerScore}`);
     } else if ((humanChoice == 2 && computerChoice == 0) || (humanChoice == 0 && computerChoice == 1) || (humanChoice == 1 && computerChoice == 2) ) {
-        console.log(humanChoice);
-        console.log(computerChoice);
         computerScore = ++computerScore;
         console.log(`Computer wins. Score is human: ${humanScore} computer: ${computerScore}`);
     } else {
-        console.log(humanChoice);
-        console.log(computerChoice);
         console.log(`Draw. Score is human: ${humanScore} computer: ${computerScore}`);
     }
 }
 
-playRound(getHumanChoice(), getComputerChoice());
 //step 5: write the logic for the entire game
+function playGame() {
+    let keepGoing = true;
+    let counter = 0;
+    while (keepGoing) {
+        displayScore(humanScore, computerScore);
+        playRound(getHumanChoice(), getComputerChoice());
+        counter++;
+        console.log(`Counter: ${counter}, type: ${typeof counter}`)
+        if (counter > 5) {
+            keepGoing = false;
+
+        }
+    }
+    
+    displayScore(humanScore, computerScore);
+    alert("Gameover");
+}
+
+function displayScore(humanScore, computerScore) {
+    alert(`The score is\n Human: ${humanScore}\n Computer: ${computerScore}`)
+}
+
+playGame();
