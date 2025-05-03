@@ -1,5 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
+const btn_rock = document.querySelector("#rock");
+const btn_paper = document.querySelector("#paper");
+const btn_scissors = document.querySelector("#scissors");
+
 
 // step 1: getComputerChoice will randomly return one of the following values:
 // rock, paper or scissors. Use math.random
@@ -50,14 +54,16 @@ function playGame() {
     let keepGoing = true;
     let counter = 0;
     while (keepGoing) {
-        displayScore(humanScore, computerScore);
+        temp = getHumanChoice();
+        alert(temp);
+        if (temp === "q") {
+           break;
+        }
         playRound(getHumanChoice(), getComputerChoice());
+        displayScore(humanScore, computerScore);
         counter++;
         console.log(`Counter: ${counter}, type: ${typeof counter}`)
-        if (counter > 5) {
-            keepGoing = false;
 
-        }
     }
     
     displayScore(humanScore, computerScore);
