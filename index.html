@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="app.js" defer></script>
+    <style>
+        .container  {
+            width: 200px;
+            padding: 20px;
+            background-color: lightblue;
+            margin: auto;
+            border: 2px solid darkgrey;
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+        .buttons {
+            background-color: blue;
+            padding: 5px;
+        }
+
+        .buttons * {
+            background-color: blue;
+            color: white;
+        }
+
+        .score {
+            width: 200px;
+            background-color: bisque;
+            margin: auto;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -14,6 +42,10 @@
             <button id="scissors">Scissors</button>
         </div>
     </div>
-    
+    <div class="score">
+        <div class="score-header">The Score is:</div>
+        <div class="human-score">0</div>
+        <div class="computer-score">0</div>
+    </div>   
 </body>
 </html>
